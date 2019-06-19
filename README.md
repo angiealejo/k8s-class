@@ -1,4 +1,4 @@
-## Desplear aplicación Flask en Kubernetes
+## Desplegar aplicación Flask en Kubernetes
 ### Paso 1: Crear imagen de Docker
 ```
 sudo docker build -t belem-project-img . 
@@ -16,7 +16,7 @@ sudo docker ps
 ```
 sudo docker exec -i -t <nombre_container> bash
 ```
-# Aqui tiras tus curls a tus endpoints para probar que todo funcione e.g curl 0.0.0.0:8000/index
+#### Aqui tiras tus curls a tus endpoints para probar que todo funcione e.g curl 0.0.0.0:8000/index
 
 ### Paso 3: Taggear la imagen y subirla al container registry
 ```
