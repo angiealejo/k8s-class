@@ -9,14 +9,16 @@ sudo docker run --rm belem-project-img
 ```
 
 ### Paso 2: Probar que la app funciona correctamente en el contenedor
+#### Obtienes los nombres de los contenedores que están corriendo
+
 ```
 sudo docker ps
 ```
-#### Obtienes los nombres de los contenedores que están corriendo
+#### Entras al contenedor y aquí curleas tus endpoints para probar que todo funcione e.g curl 0.0.0.0:8000/index
+
 ```
 sudo docker exec -i -t <nombre_container> bash
 ```
-#### Aqui tiras tus curls a tus endpoints para probar que todo funcione e.g curl 0.0.0.0:8000/index
 
 ### Paso 3: Taggear la imagen y subirla al container registry
 ```
@@ -50,7 +52,8 @@ spec:
         - containerPort: 8000
 ```
 
-``` kubectl apply -f deployment.yaml
+```
+kubectl apply -f deployment.yaml
 ```
 
 ```
