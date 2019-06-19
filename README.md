@@ -1,42 +1,3 @@
-
-# BACKEND
-
-```
-pip install -r requirements.txt
-```
-
-## Elasticsearch
-Para utilizar las APIS del CRUD y búsqueda se debe generar el siguiente index en elasticsearch:
-
-```
-PUT events
-{
-  "mappings": {
-    "_doc": {
-      "properties": {
-        "label": {
-          "properties": {
-            "autocomplete": {
-              "type": "completion"
-            },
-            "text": {
-              "type": "text"
-            }
-          }
-        },
-        "start_date": {
-          "type": "keyword"
-        },
-        "end_date": {
-          "type": "keyword"
-        }
-      }
-    }
-  }
-}
-
-```
-
 ## Desplear aplicación Flask en Kubernetes
 ### Paso 1: Crear imagen de Docker
 ```
@@ -51,7 +12,7 @@ sudo docker run --rm belem-project-img
 ```
 sudo docker ps
 ```
-# Obtienes los nombres de los contenedores que están corriendo
+#### Obtienes los nombres de los contenedores que están corriendo
 ```
 sudo docker exec -i -t <nombre_container> bash
 ```
@@ -119,7 +80,7 @@ spec:
 ```
 kubectl get svc
 ```
-## Aqui podemos ingresar al pod y curlear la ip interna del service
+#### Aqui podemos ingresar al pod y curlear la ip interna del service
 ```
 kubectl get pods
 ```
@@ -132,7 +93,7 @@ kubectl exec -i -t nombre_del_pod bash
 root@pod_name$ curl ip_interna/endpoint
 ```
 
-#### Paso 6: Crear ingress
+### Paso 6: Crear ingress
 ```
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -150,7 +111,8 @@ spec:
             servicePort: 8000
 ```
 
-## Esperar a que se cree el load balancer, una vez que tengamos una ip externa, agregar al archivo /etc/hosts de nuestra máquina local
+#### Esperar a que se cree el load balancer, una vez que tengamos una ip externa, agregar al archivo /etc/hosts de nuestra máquina local
 
-``` ip_externa belem.example.com
+```
+ip_externa belem.example.com
 ```
